@@ -1,0 +1,103 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #333;
+    color: #fff;
+    border-top: 1px solid #eee;
+    /* Các thuộc tính quan trọng cho sticky footer */
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    bottom: 0; /* Gắn vào cuối trang */
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    /*height: 60px;  Chiều cao cố định của footer. Phải khớp với margin-bottom của body */
+    /*line-height: 60px;  Căn giữa nội dung theo chiều dọc nếu footer chỉ có một dòng */
+    margin-top: 0; /* Đảm bảo không có margin top thừa đẩy footer xuống */
+
+    display: flex;
+    justify-content: center; /* Căn giữa content của footer */
+    align-items: flex-start; /* Căn đầu theo chiều dọc */
+}
+
+.footer-content {
+    max-width: 1600px; /* Có thể điều chỉnh, thường là max-width của content chính */
+    width: 100%; /* Đảm bảo nó chiếm toàn bộ chiều rộng có sẵn trong max-width */
+    margin: 0 auto; /* Căn giữa container trong footer */
+    display: flex;
+    justify-content: space-around; /* Căn đều các cột */
+    align-items: flex-start; /* Căn trên cùng */
+    flex-wrap: wrap; /* Cho phép các cột xuống dòng trên màn hình nhỏ */
+    padding: 0 15px; /* Padding ngang để nội dung không sát viền */
+}
+
+.footer-section {
+    text-align: left; /* Căn trái nội dung trong mỗi cột */
+    padding: 10px; /* Padding quanh mỗi section */
+    margin-bottom: 20px; /* Khoảng cách giữa các section khi xuống dòng trên mobile */
+}
+
+    .footer-section h4 {
+        color: #007bff; /* Màu xanh cho tiêu đề section */
+        margin-bottom: 15px;
+        font-size: 1.1em;
+    }
+
+    .footer-section p {
+        margin-bottom: 8px;
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+
+        .footer-section p i {
+            margin-right: 8px; /* Khoảng cách giữa icon và text */
+            color: #adb5bd; /* Màu icon */
+        }
+
+    .footer-section a {
+        color: #fff; /* Màu link trắng */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .footer-section a:hover {
+            color: #007bff; /* Màu xanh khi hover */
+        }
+
+.social-icon {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.2em; /* Kích thước icon mạng xã hội */
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+    .social-icon i {
+        margin-right: 5px;
+    }
+
+    .social-icon:hover {
+        color: #007bff;
+    }

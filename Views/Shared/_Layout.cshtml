@@ -1,0 +1,115 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var cartCount = HttpContextAccessor?.HttpContext?.Session.GetInt32("CartCount") ?? 0;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v5.7.8, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimumscale=1">
+    <link rel="shortcut icon" href="~/assets/images/coffee-icon-sign-symbol-design-free-png.webp" type="image/x-icon">
+    <meta name="description" content="">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="path/to/mobiriseicons/css/mobiriseicons.css">
+    <link rel="stylesheet" href="~/assets/web/assets/mobiriseicons2/mobirise2.css">
+    <link rel="stylesheet" href="~/assets/web/assets/mobirise-icons-bold/mobiriseicons-bold.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/parallax/jarallax.css">
+    <link rel="stylesheet" href="~/assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="~/assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="~/assets/theme/css/style.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
+    </noscript>
+    <link rel="preload" as="style" href="~/assets/mobirise/css/mbradditional.css">
+    <link rel="stylesheet" href="~/assets/mobirise/css/mbr-additional.css" type="text/css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <main>
+    <section data-bs-version="5.1" class="menu menu3 cid-tsEQosCCDP" once="menu" id="menu3-0">
+        <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+            <div class="container">
+                <div class="navbar-brand">
+                    <span class="navbar-logo">
+                        <a asp-controller="Home" asp-action="Index">
+                                <img src="/assets/images/Gemini_Generated_Image_yzr4ibyzr4ibyzr4.png" alt="AnhBui Shop"
+                                 style="height: 5rem;">
+                        </a>
+                    </span>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
+                        data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                        <li class="nav-item">
+                            <a asp-controller=Home asp-action=Index class="nav-link link text-black show display-4">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller=Product asp-action=Shop class="nav-link link text-black show display-4">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller=Product asp-action=Contact class="nav-link link text-black show display-4">Contact</a>
+                        </li>
+                        <partial name="_LoginPartial">
+                        <li class="nav-item">
+                            <a class="nav-link link text-black show display-4" a asp-controller=ShoppingCart asp-action=Index>
+                                <i class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></i> (<span id="cart-count">@cartCount</span>)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    @RenderBody()
+    <section data-bs-version="5.1" class="footer7 cid-tsQdrs3Vrj" once="footers" id="footer7-13">
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-4 footer-section">
+                        <h4>Thông tin liên hệ</h4>
+                        <p style ="color: white;"><i class="fas fa-map-marker-alt"></i> 25 Tôn Thất Tùng, Phường 8, Đà Lạt, Lâm Đồng</p>
+                        <p style="color: white;"><i class="fas fa-phone"></i> Điện thoại: <a href="tel:+84797890105">0797.890.105</a></p>
+                        <p style="color: white;"><i class="fas fa-envelope"></i> Email: <a href="mailto:anhbui0188@example.com">anhbui0188@example.com</a></p>
+                    </div>
+                    <div class="col-md-4 footer-section">
+                        <h4>Mạng xã hội</h4>
+                        <p style="color: white;">Kết nối với chúng tôi:</p>
+                        <a href="https://www.facebook.com/your-facebook-page" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        @* Thêm các icon mạng xã hội khác nếu có, ví dụ Twitter, Instagram *@
+                        <a href="https://www.instagram.com/your-instagram-page" target="_blank" class="social-icon"><i class="fab fa-instagram"></i> Instagram</a>
+                    </div>
+                    <div class="col-md-4 footer-section">
+                        <h4>Về chúng tôi</h4>
+                        <p style="color: white;">AnhBui Shop - Thời trang tạo dấu ấn, phong cách tạo khác biệt, cửa hàng quần áo có thương hiệu tại Đà Lạt</p>
+                        <p style="color: white;">&copy; @DateTime.Now.Year - AnhBui Shop/p> @* Cập nhật năm tự động *@
+                    </div>
+                </div>
+        </div>
+    </section>
+    </main>
+    <script src="~/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/parallax/jarallax.js"></script>
+    <script src="~/assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="~/assets/ytplayer/index.js"></script>
+    <script src="~/assets/dropdown/js/navbar-dropdown.js"></script>
+    <script src="~/assets/theme/js/script.js"></script>
+    @await RenderSectionAsync("Scripts",false);
+</body>
+</html>

@@ -1,0 +1,104 @@
+﻿@model AnhBui.Models.Order
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hóa đơn #@Model.Id</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        .invoice-container {
+            max-width: 800px;
+            margin: auto;
+            border: 1px solid #eee;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        }
+
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .invoice-header h1 {
+                color: #333;
+            }
+
+        .invoice-details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .invoice-details th, .invoice-details td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .invoice-details th {
+            background-color: #f2f2f2;
+        }
+
+        .invoice-total {
+            text-align: right;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="invoice-header">
+            <h1>Hóa đơn AnhBui Shop</h1>
+            <p>Mã hóa đơn: #@Model.Id</p>
+            <p>Ngày đặt: @Model.OrderPlaced.ToString("dd/MM/yyyy HH:mm")</p>
+        </div>
+
+        <div class="customer-info">
+            <h3>Thông tin khách hàng:</h3>
+            <p><strong>Tên:</strong> @Model.FirstName @Model.LastName</p>
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Điện thoại:</strong> @Model.Phone</p>
+            <p><strong>Địa chỉ:</strong> @Model.Address</p>
+        </div>
+
+        <div class="invoice-details">
+            <h3>Chi tiết đơn hàng:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá mỗi sản phẩm</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderDetails!)
+                    {
+                        <tr>
+                            <td>@item.Product?.Name</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price.ToString("C")</td>
+                            <td>@((item.Quantity * item.Price).ToString("C"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="invoice-total">
+            <p>Tổng cộng: @Model.OrderTotal.ToString("C")</p>
+        </div>
+
+        <div class="text-center" style="margin-top: 30px;">
+            <p>Cảm ơn bạn đã mua sắm tại AnhBui Shop!</p>
+            <a class="btn btn-primary" asp-controller="Products" asp-action="Shop">Tiếp tục mua sắm</a>
+        </div>
+    </div>
+</body>
+</html>

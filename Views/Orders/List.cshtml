@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AnhBui.Models.Order>
+
+@{
+    ViewData["Title"] = "Đơn hàng của tôi";
+}
+
+<h1>Đơn hàng của tôi</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>Ngày đặt</th>
+                <th>Tổng tiền</th>
+                <th>Tên khách hàng</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.OrderPlaced.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@order.OrderTotal.ToString("C")</td>
+                    <td>@order.FirstName @order.LastName</td>
+                    <td>
+                        <a asp-action="Invoice" asp-route-orderId="@order.Id">Xem chi tiết hóa đơn</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Bạn chưa có đơn hàng nào.</p>
+}
+
+<p>
+    <a asp-controller="Products" asp-action="Shop">Tiếp tục mua sắm</a>
+</p>
